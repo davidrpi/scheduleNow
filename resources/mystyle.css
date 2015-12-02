@@ -4,12 +4,37 @@ html, body {
 	height: 100%;
 	margin:0;
   padding:0;
-	background:#1F5EC3;
+	background:#4577C7;
 	color: white;
 }
 h1 {
 	text-align: center;
 }
+
+#title {
+	text-align: center;
+}
+
+#createButton {
+	color: #FFF;
+  font-size: 2em;
+  text-decoration: none;
+  display: block;
+	outline: white solid medium;
+	width: 220px;
+	text-align: center;
+	position: absolute;
+}
+
+#createButton:hover {
+	background-color: white;
+	color: #4577C7;
+}
+
+#button {
+	text-align: center;
+}
+
 #container {
    min-height:100%;
    position:relative;
