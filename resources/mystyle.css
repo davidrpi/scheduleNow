@@ -1,0 +1,50 @@
+html, body {
+	font-family: Helvetica;
+	font-size: 42;
+	height: 100%;
+	margin:0;
+  padding:0;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+   background:#6cf;
+   padding:10px;
+}
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:120px;   /* Height of the footer */
+   background:#6cf;
+	 clear:both;
+ 	 text-align: center;
+   margin: auto;
+}
+
+.icon, #nav {
+	color: black;
+}
+
+.icon h2:hover {
+	color: #6cf;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+#nav h1:hover {
+	color: white;
+}
+
+#me {
+	float:left;
+}
