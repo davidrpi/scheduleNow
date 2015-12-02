@@ -1,0 +1,18 @@
+Todo:
+Homepage
+	Title
+	Create Event Button
+Event Details
+	Event Name
+	Range (Date/Time) Selectors
+	Description
+	Share via email (Recipients)
+	Generate Button
+Results Page
+	Link
+	Key
+	Grid
+Individual Availability Page
+	Key
+	Grid
+	Submit Button
