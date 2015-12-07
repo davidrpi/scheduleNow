@@ -3,22 +3,83 @@
   <head>
     <title>scheduleNow</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="resources/mystyle.css" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="resources/libraries/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script type="text/javascript" src="resources/javascript/createEvent.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="resources/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/bootstrap-datepicker.css" />
+
+    <link href="resources/mystyle.css" rel="stylesheet" type="text/css"/>
+    <script>
+    $(function() {
+      $( "#dateStart" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+          $( "#dateEnd" ).datepicker( "option", "minDate", selectedDate );
+        }
+      });
+      $( "#dateEnd" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+          $( "#dateStart" ).datepicker( "option", "maxDate", selectedDate );
+        }
+      });
+    });
+    </script>
 
   </head>
 
   <body>
-    <div id="container">
-      <div id="header">
-      </div>
-      <div id="body">
-        <h1>ScheduleNow</h1>
-        <h2 id="title">Create Event</h2>
-      </div>
-      <div id="footer">
+    <div id="bodyBlock">
+      <h1><a id="logo" href="index.html"><i class="fa fa-calendar-o"></i></a> ScheduleNow</h1>
+      <h2>Create Event</h2>
+      <form id="addForm" name="addForm" action="#" method="post" onsubmit="return validate(this);">
+        <fieldset>
+            <div class="formData">
+            <div id="event">
+              <label class="field" for="eventTitle">Event Title:</label>
+              <input type="text" size="46" value="" name="eventTitle" id="eventTitle" autofocus/>
+            </div>
 
+            <div id="dateRange">
+              <label class="field" for="dateRange">Date Range:</label>
+              <input type="text" id="dateStart" style="color:#ccc;" value="12/07/2015" onfocus="this.value = this.value=='12/07/2015' ? '' : this.value; this.style.color='#000';" onfocusout="this.value = this.value == '' ? this.value = '12/07/2015' : this.value; this.value=='12/07/2015' ? this.style.color='#ccc' : this.style.color='#000'"/>
+              <label for="dateEnd">to</label>
+              <input type="text" id="dateEnd" style="color:#ccc;" value="12/08/2015" onfocus="this.value = this.value=='12/08/2015' ? '' : this.value; this.style.color='#000';" onfocusout="this.value = this.value == '' ? this.value = '12/08/2015' : this.value; this.value=='12/08/2015' ? this.style.color='#ccc' : this.style.color='#000'"/>
+            </div>
+
+            <div id="timeRange">
+                <label class="field" for="timeRange">Time Range:</label>
+                <input type="text" style="color:#ccc;" value="12:00 PM" onfocus="this.value = this.value=='12:00 PM' ? '' : this.value; this.style.color='#000';" onfocusout="this.value = this.value == '' ? this.value = '12:00 PM' : this.value; this.value=='12:00 AM' ? this.style.color='#ccc' : this.style.color='#000'"/>
+                <label for="dateEnd">to</label>
+                <input type="text" style="color:#ccc;" value="1:00 PM" onfocus="this.value = this.value=='1:00 PM' ? '' : this.value; this.style.color='#000';" onfocusout="this.value = this.value == '' ? this.value = '1:00 PM' : this.value; this.value=='1:00 PM' ? this.style.color='#ccc' : this.style.color='#000'"/>
+            </div>
+
+            <label class="field" for="EventDesc">Event Description:</label>
+            <div class="value" id="eventDescription"><textarea rows="4" cols="60" name="eventDesc" id="eventDesc" onfocus="clearContents(this);">Add a description (optional)</textarea></div>
+
+          </div>
+        </fieldset>
+      </form>
+      <div id="button">
+        <a id="shareButton" href="events/event_dashboard.html">Share Event</a>
       </div>
+    </div>
+    <div id="footer">
+      <h3 id="contact">Questions? <i class="fa fa-envelope-o"></i> scheduleNowTeam@gmail.com</h3>
     </div>
   </body>
 
